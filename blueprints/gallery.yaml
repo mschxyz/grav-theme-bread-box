@@ -1,1 +1,55 @@
+title: Gallery
 
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      
+      fields:
+        gallery:
+          type: tab
+          title: Gallery
+          
+          fields:
+            header.title:
+              type: text
+              autofocus: true
+              style: vertical
+              label: PLUGIN_ADMIN.TITLE
+              
+            header.gallery_images:
+              type: list
+              style: vertical
+              label: Images
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                  validate:
+                    required: true
+                .title_long:
+                  type: text
+                  label: Title (long)
+                .year:
+                  type: text
+                  label: Year
+                  validate:
+                    required: true
+                    pattern: "^[0-9]{4}$"
+                .link:
+                  type: pages
+                  label: Link
+                  show_fullpath: true
+                  validate:
+                    required: true
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  validate:
+                    required: true
+
+            header.media_order:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
+              
