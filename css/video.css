@@ -1,0 +1,58 @@
+.video-container {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+}
+.video-container img {
+	display: block;
+	border-radius: 5px;
+	width: 100%;
+}
+.video-container button {
+	position: absolute;
+	top: calc(50% - 20px);
+	left: calc(50% - 20px);
+	width: 40px;
+	height: 40px;
+	border: 0;
+	border-radius: 50%;
+	background: #303030e0;
+	color: var(--text);
+	padding-left: 7px;
+	padding-bottom: 4px;
+	font-size: 19px;
+}
+.video-container button:hover {
+	background: #303030a0;
+	color: var(--red);
+}
+.video-modal {
+	position: fixed;
+	background: #000000c0;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	display: none;
+	z-index: 1001;
+}
+.video-modal-buttons {
+	height: 5vh;
+}
+.video-modal button {
+	float: right;
+	background: #0000;
+	border: none;
+	padding: .5rem;
+	color: var(--red);
+	font-size: 1rem;
+}
+.video-modal button:hover {
+	background: #0000;
+}
+.video-modal iframe {
+	width: 100%;
+	height: 53vw;
+	max-height: 90vh;
+}

@@ -1,0 +1,232 @@
+/* Core Stuff */
+:root {
+	--light: #fafafa;
+	--lightish: #ddd;
+	--dark: #333;
+	--darkish: #444;
+	--red: #ad5151;
+	--blue: #5190dd;
+	--blueish: #a0ccff;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+	max-width: 850px;
+	min-height: 100vh;
+	margin: auto;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--light);
+    background: var(--dark);
+    background-image: linear-gradient(#0000,#0003);
+}
+@media only screen and (max-width: 600px) {
+	.columns {
+		grid-template-rows: [left] auto [right] auto;
+	}
+}
+@media only screen and (min-width: 601px) {
+	.columns {
+		grid-template-columns: [left] minmax(200px,1fr) [right] minmax(400px,2fr);
+	}
+}
+
+h1 {
+	border-radius: 5px 5px 5px 0px;
+	color: var(--dark);
+	margin-top: 5rem;
+	padding-top: 10px;
+	padding-left: 1rem;
+	background: var(--light);
+	margin-bottom: 0rem;
+	text-transform: uppercase;
+	line-height: 1.2rem;
+	font-weight: 1000;
+}
+
+h2,h3,h4,h5,h6 {
+    color: var(--light);
+}
+
+small {
+	color: var(--lightish);
+}
+
+.columns {
+	display: grid;
+}
+
+.content {
+	border-left: 1px solid var(--light);
+	padding: 1rem;
+}
+
+.left, .right {
+	margin: 1rem;
+}
+.right {
+	border-radius: 5px;
+	padding: 0rem 1rem;
+}
+.highlight {
+	background: var(--darkish);
+	padding: 1rem;
+}
+.left img {
+	width: 100%;
+	max-width: 400px;
+	border-radius: 5px;
+}
+.right>p {
+	margin-top: 0;
+}
+.right>h2 {
+	margin-top: 0;
+}
+
+h1, .video-container, .shadow {
+	box-shadow: 5px 10px 15px #0003;
+}
+
+a {
+    color: var(--blueish);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--blue);
+}
+
+pre {
+    background: #F0F0F0;
+    margin: 1rem 0;
+    border-radius: 2px;
+}
+
+blockquote {
+    border-left: 10px solid #eee;
+    margin: 0;
+    padding: 0 2rem;
+}
+
+/* Utility Classes */
+.float-left { float: left; }
+.float-right { float: right; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+/* Content Styling */
+header {
+    padding: 1rem 0;
+}
+
+header {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+header a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+header .logo {
+    font-size: 1.7rem;
+}
+
+footer {
+	padding: 3rem 0rem;
+	text-align: center;
+}
+
+/* Menu Settings */
+.main-nav ul {
+    text-align: center;
+    letter-spacing: -1em;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    display: inline-block;
+    letter-spacing: normal;
+}
+
+.main-nav ul li a {
+    position: relative;
+    display: block;
+    line-height: 45px;
+    color: var(--light);
+    padding: 0 20px;
+    white-space: nowrap;
+    border-top: 2px solid #0000;
+    border-bottom: 2px solid #0000;
+}
+
+.main-nav > ul > li > a {
+}
+
+/*Active dropdown nav item */
+.main-nav ul li:hover > a {
+    border-bottom: 2px solid var(--light);
+}
+
+/* Selected Dropdown nav item */
+.main-nav ul li.selected > a {
+/*
+	border-top: 2px solid var(--light);
+*/
+	border-bottom: 2px solid var(--light);
+	background: linear-gradient(#fff0,#fff1);
+}
+
+/* Dropdown CSS */
+.main-nav ul li {position: relative;}
+
+.main-nav ul li ul {
+    position: absolute;
+    background-color: var(--dark);
+    min-width: 100%;
+    text-align: left;
+    z-index: 999;
+
+    display: none;
+}
+.main-nav ul li ul li {
+    display: block;
+}
+
+
+/* Dropdown CSS */
+.main-nav ul li ul ul {
+    left: 100%;
+    top: 0;
+}
+
+/* Active on Hover */
+.main-nav li:hover > ul {
+    display: block;
+}
+
+/* Child Indicator */
+.main-nav .has-children > a {
+    padding-right: 30px;
+}
+.main-nav .has-children > a:after {
+    content: '+';
+    position: absolute;
+    display: inline-block;
+    right: 8px;
+    top: 0;
+}
+
+.main-nav .has-children .has-children > a:after {
+    content: '+';
+}
