@@ -1,1 +1,49 @@
+title: Material
 
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      
+      fields:
+        material:
+          type: tab
+          title: Material
+          
+          fields:
+            header.title:
+              type: text
+              autofocus: true
+              style: vertical
+              label: PLUGIN_ADMIN.TITLE
+              
+            header.images:
+              type: list
+              style: vertical
+              label: Images
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                  validate:
+                    required: true
+                .size:
+                  type: text
+                  label: Size
+                  validate:
+                    required: true
+                .type:
+                  type: text
+                  label: MIME-Type
+                  validate:
+                    required: true
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  validate:
+                    required: true
+
+            header.media_order:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
