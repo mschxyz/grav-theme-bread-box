@@ -1,1 +1,48 @@
+title: Film
+'@extends':
+  type: default
+  context: blueprints://pages
 
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      
+      fields:
+        content:
+          fields:
+            header.info_line:
+              type: text
+              style: vertical
+              label: Info
+              validate:
+                required: true
+            header.poster_image:
+              type: pagemediaselect
+              style: vertical
+              label: Poster
+              validate:
+                required: true
+            header.title_image:
+              type: pagemediaselect
+              style: vertical
+              label: Title
+              validate:
+                required: false
+            header.laurels:
+              type: list
+              style: vertical
+              label: Laurels
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                  validate:
+                    required: true
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  validate:
+                    required: true
+                  
