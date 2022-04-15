@@ -1,0 +1,32 @@
+name: Bread Box
+slug: bread-box
+type: theme
+version: 0.1.1
+description: A theme for Interactive Bread
+icon: empire
+author:
+  name: mschxyz
+  email: git@msch.xyz
+homepage: https://github.com/mschxyz/grav-theme-bread-box
+demo: http://interactive-bread.com
+keywords: grav, theme, etc
+bugs: https://github.com/mschxyz/grav-theme-bread-box/issues
+readme: https://github.com/mschxyz/grav-theme-bread-box/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool
