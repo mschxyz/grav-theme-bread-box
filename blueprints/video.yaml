@@ -1,0 +1,28 @@
+title: Video
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      
+      fields:
+        content:
+          fields:
+          
+            header.youtube_id:
+              type: text
+              style: vertical
+              label: Youtube Video-ID
+              validate:
+                required: true
+                
+            header.thumbnail_image:
+              type: pagemediaselect
+              style: vertical
+              label: Thumbnail
+              validate:
+                required: true
