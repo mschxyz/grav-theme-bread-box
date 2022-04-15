@@ -1,0 +1,19 @@
+{% block content %}
+	<div class="gallery">
+		{% for image in page.find('/gallery').header.gallery_images %}
+			{% if image.title_long != '' %}
+				{% set title_long = image.title_long %}
+			{% else %}
+				{% set title_long = image.title %}
+			{% endif %}
+			<a href="{{ base_url}}{{ image.link }}" title="{{ title_long }}">
+				<div>
+					{{ page.find('/gallery').media[image.image].resize(150).html(title_long)|raw }}
+					<div class="caption">
+						<b>{{ image.title }}</b> ({{ image.year }})
+					</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

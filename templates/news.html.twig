@@ -1,0 +1,31 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	{% include 'gallery.html.twig' %}
+	<h1>News</h1>
+	<div class="content columns">
+		{% set video_posts = page.find('/videos').children %}
+		{% set blog_articles = page.find('/blog').children %}
+		{% set items = video_posts.merge(blog_articles) %}
+		{% for item in items.order('date','desc').slice(0,5) %}
+			<div class="left text-center">
+				{% set id = item.header.youtube_id %}
+				{% set thumb = item.header.thumbnail_image %}
+				{% if id != '' %}
+					<div id="{{ id }}" class="video-container">
+						{{ item.media[thumb].resize(400).html(item.title)|raw }}
+					</div>
+				{% endif %}
+			</div>
+			<div class="right {% if id != '' %}highlight shadow{% endif %}">
+				<small><i>{{ item.date | date('d.m.Y') }}</i></small>
+				<h2>{{ item.title }}</h2>
+				{{ item.summary|raw }}
+				{% if id == '' %}
+					<a href="{{ item.url }}" title="{{ item.title }}">mehr lesen...</a>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+

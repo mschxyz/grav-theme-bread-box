@@ -1,0 +1,35 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<h1>{{ page.parent.title }} - {{ header.title }}</h1>
+	<div class="content columns">
+		<div class="left"></div>
+		<div class="right highlight shadow text-center">
+			<p>
+				<img src="https://mirrors.creativecommons.org/presskit/logos/cc.logo.svg" title="Creative Commons Logo">
+			</p>
+			<p>
+				Das folgende Material unterliegt der <a href="https://creativecommons.org/licenses/by/4.0/deed.de" target="_blank" title="CC BY 4.0">CC BY 4.0</a> Lizenz.<br>
+				Es kann unter Angabe des Urhebers <b>Interactive Bread</b> frei verwendet werden.
+			</p>
+			<p>
+				<i>
+					The following material is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" title="CC BY 4.0">CC BY 4.0</a>.<br>
+					It can be freely used while crediting <b>Interactive Bread</b>.
+				</i>
+			</p>
+		</div>
+		{% for image in header.images %}
+			<div class="left text-center">
+				<a href="{{ page.url }}/{{ image.image }}" title="{{ image.title }}" target="_blank">
+					{{ page.media[image.image].resize(400).html(image.title)|raw }}
+				</a>
+			</div>
+			<div class="right">
+				<h3>{{ image.title }}</h3>
+				{{ image.size }}<br>
+				{{ image.type }}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

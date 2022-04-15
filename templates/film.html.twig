@@ -1,0 +1,20 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<h1>{{ header.title }}</h1>
+	<div class="content columns">
+		<div class="left text-center">
+			{{ page.media[page.header.poster_image].resize(400).html(header.title)|raw }}
+		</div>
+		<div class="right">
+			{{ page.content|raw }}
+		</div>
+	</div>	
+	{% if page.header.laurels|length > 0 %}
+		<div class="laurels text-center">
+			{% for laurel in page.header.laurels %}
+				{{ page.media[laurel.image].resize(200,200).html(laurel.title)|raw }}
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}

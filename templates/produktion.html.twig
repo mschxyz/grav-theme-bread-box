@@ -1,0 +1,22 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<h1>Produktion</h1>
+	<div class="content columns">
+		{% set films = page.find('/produktion').children %}
+		{% for item in films %}
+			<div class="left text-center">
+				<a href="{{ item.url }}" title="{{ item.title }}">
+					{{ item.media[item.header.title_image].resize(400).html(item.header.title)|raw }}
+				</a>
+			</div>
+			<div class="right highlight shadow">
+				<h2>{{ item.title }}</h2>
+				<p>
+					<i>{{ item.header.info_line|raw }}</i>
+				</p>
+				<a href="{{ item.url }}" title="{{ item.title }}">mehr lesen...</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
